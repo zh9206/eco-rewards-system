@@ -22,8 +22,8 @@ EcoRewards is a web-based sustainability platform designed to encourage environm
 - MySQL
 
 ## My Contributions
-
-- Developed core system functionalities
+- Developed login page
+- Developed points visualization features
 - Implemented activity submission and verification workflow
 - Designed reward redemption mechanism
 - Participated in system testing and debugging
