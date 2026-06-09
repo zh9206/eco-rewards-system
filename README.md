@@ -38,6 +38,9 @@ EcoRewards is a web-based sustainability platform designed to encourage environm
 
 ![Dashboard](screenshots/Dashboard.png)
 
+### Leaderboard
+![Leaderboard](screenshots/Leaderboard.png)
+
 ### Reward Redemption
 
 ![Rewards](screenshots/Rewards-Page.png)
