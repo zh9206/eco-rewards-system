@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+
+<title>Login - EcoRewards</title>
+
+<style>
+body {
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 90%;
+    max-width: 380px;
+    padding: 60px 40px 40px 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    position: relative;
+}
+
+/* Role Tab */
+.role-tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+}
+
+.role-tabs .tab {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.role-tabs .tab.active {
+    background: #84B179;
+    color: white;
+}
+
+.role-tabs .tab:hover {
+    background: #A2CB8B;
+}
+
+/* Header */
+.header {
+    margin-bottom: 25px;
+}
+
+.header img {
+    height: 70px;
+}
+
+/* Input Fields */
+.input-box {
+    margin-bottom: 18px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: #E8F5BD;
+    transition: 0.3s;
+}
+
+.input-box input::placeholder {
+    color: #5E8C61;
+}
+
+.input-box input:focus {
+    border: 2px solid #84B179;
+    outline: none;
+    background: white;
+}
+
+/* Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #84B179;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #6E9E66;
+    transform: translateY(-2px);
+}
+
+</style>
+</head>
+<body>
+
+<div class="login-card">
+    <div class="role-tabs">
+        <button class="tab active" onclick="switchRole('R01')">Student</button>
+        <button class="tab" onclick="switchRole('R02')">Moderator</button>
+        <button class="tab" onclick="switchRole('R03')">Administrator</button>
+    </div>
+
+    <div class="header">
+        <img src="logo.png" alt="Logo">
+        <p>Grow your impact. Grow your tree.</p>
+    </div>
+    
+
+    <form action="login.php" method="POST">
+        <input type="hidden" name="role" id="roleInput">
+        <div class="input-box">
+            <input type="text" id="loginId" name="loginId" placeholder="TP Number" required>
+        </div>
+
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+
+</div>
+
+<script>
+    // Default Role
+    window.onload = function() {
+        switchRole("R01");
+    };
+
+    function switchRole(role) {
+
+        document.getElementById("roleInput").value = role;
+
+        const tabs = document.querySelectorAll(".tab");
+        tabs.forEach(tab => tab.classList.remove("active"));
+
+        const loginInput = document.getElementById("loginId");
+
+        switch(role) {
+
+            case "R01":
+                tabs[0].classList.add("active");
+                loginInput.placeholder = "TP Number";
+                break;
+
+            case "R02":
+                tabs[1].classList.add("active");
+                loginInput.placeholder = "User ID";
+                break;
+
+            case "R03":
+                tabs[2].classList.add("active");
+                loginInput.placeholder = "User ID";
+                break;
+
+            default:
+                loginInput.placeholder = "Enter ID";
+        }
+    }
+</script>
+
+</body>
+</html>
